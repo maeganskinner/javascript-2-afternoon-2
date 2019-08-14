@@ -19,7 +19,7 @@ var arr = [10,20,30];
 
 //Code Here
 function first (arr){
-  return arr [10]
+  return arr [0]
 }
 
 
@@ -37,7 +37,7 @@ var arr = [40,50,60];
 
 //Code Here
 function last (arr) {
-  return arr [40]
+  return arr [2]
 }
 
 
