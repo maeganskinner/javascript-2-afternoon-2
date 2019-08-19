@@ -99,15 +99,17 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 //Code Here
-function eventFinder(nums){
-  for (var i = 0; i < nums.length; i++){
-    if (nums[i] % 2 !== 0){
-    delete nums[i];
+function evenFinder(arr) {
+  var evensArr = [];
+  for(var i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 === 0) {
+      evensArr.push(arr[i]);
     }
   }
-  return nums
+  return evensArr;
 }
-eventFinder(nums)
+
+evenFinder([1,2,3,4,5,6,8])
 
 
 
@@ -135,7 +137,17 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
   and the second item in the array being the odds array (all the odd values from numbersArray).
 */
 
-//Code Here
+
+  function divider(numbersArray){
+       evens = numbersArray.filter(function(number){
+       		return number % 2 === 0;
+       });
+       odds = numbersArray.filter(function(number){
+       		return number % 2 !== 0;
+       });
+       return [evens,odds];
+     }
+    
 
 
 
@@ -157,7 +169,13 @@ var getRandomArbitrary = function() {
   If it is, return true, if it's not, return false
 */
 
-//Code Here
+function finder(arr){
+     var rand = getRandomArbitrary();
+   	console.log(rand);
+   	return arr.indexOf(rand) === -1 ? false: true;
+   }
+  
+   finder([0,4,9,10]);
 
 
 
@@ -186,8 +204,31 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem(groceryList, itemToRemove) {
+  if(itemToRemove && groceryList) {
+    var index = groceryList.indexOf(itemToRemove)
+    if (index > -1) {
+      groceryList.splice(index, 1)
+    }
+    return groceryList
+  } else {
+    return []
+  }
 
+  
+}
+
+
+function addItem(groceryList, itemToAdd) {
+  if(itemToAdd && groceryList) {
+    groceryList.push(itemToAdd)
+    return groceryList
+  } else {
+    return []
+  }
+
+  
+}
 
 
 ////////// PROBLEM 9 //////////
@@ -196,7 +237,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+function maker() {
+  var newArr = [];
+  for(var i = 1; i <= 25; i++) {
+    newArr.push(i);
+  }
+  return newArr;
+}
+
+maker();
 
 
 
@@ -212,9 +261,18 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   Your output should look like this -> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+function addTen(numbers) {
+  var onlyNums = numbers.map((val) => {
+    return Number(val);
+  })
+  var solution = onlyNums.map((val) => {
+    return val += 10;
+  })
+  return solution;
+}
 
 
+addTen(numbers);
 
 ////////// PROBLEM 11 //////////
 
@@ -237,9 +295,16 @@ for(var i = 0; i < num2; i++){
   Return the longer of the two arrays.
 */
 
-//Code Here
 
+function longer(arr1, arr2) {
+  if(arr1.length > arr2.length){
+    return arr1;
+  }
+  return arr2;
+}
 
+  
+    
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
